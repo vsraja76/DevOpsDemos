@@ -21,7 +21,18 @@ usermod -aG docker dockeradmin
 ```sh
 mkdir /opt/docker
 
+chown -R dockeradmin:dockeradmin /opt/docker
+
+enable password based auth in docker server:
+/etc/ssh/sshd_config
+enable -> PasswordAuthentication yes
+
+service sshd restart
+```
+
 ### vi Dockerfile
+
+```sh
 # Pull base image 
 From tomcat:8-jre8 
 
